@@ -6,6 +6,7 @@ import useSWR from 'swr'
 import { counting } from '../redux/actions/counterActions'
 import Footer from '../components/footer/Footer'
 
+
 const Home = () => {
   const count = useSelector((state) => state.counterReducer.count)
   const dispatch = useDispatch()
@@ -21,7 +22,9 @@ const Home = () => {
     return res.json()
   }
   const { data } = useSWR('/api/city/city', fetcher)
+
   console.log(data, '123')
+
   return (
     <div>
       <h4>redux counter:</h4>
