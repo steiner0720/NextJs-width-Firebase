@@ -23,8 +23,6 @@ const Home = () => {
   }
   const { data } = useSWR('/api/city/city', fetcher)
 
-  console.log(data, '123')
-
   return (
     <div>
       <h4>redux counter:</h4>
@@ -64,6 +62,8 @@ const Home = () => {
           to en about
         </button>
       </div>
+      <h4>fetch fireBase API, City:</h4>
+      <span>{data && data.name}</span>
       <Footer />
     </div>
   )
