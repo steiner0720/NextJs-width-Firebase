@@ -1,26 +1,33 @@
+// @ts-nocheck
+import I18nProvider from 'next-translate/I18nProvider'
 import React from 'react'
-import Router from 'next/router'
-import { useSelector, useDispatch } from 'react-redux'
-import { counting } from '../redux/actions/counterActions'
+import C from '../pages_/home'
+import ns0 from '../locales/en/common.json'
 
-const Home = () => {
-  const count = useSelector((state) => state.counterReducer.count)
-  const dispatch = useDispatch()
+const namespaces = { 'common': ns0 }
 
-  const handleChange = (num) => {
-    counting({ dispatch, count: num })
-  }
+export default function Page(p){
   return (
-    <div>
-      <span>current count : {count}</span>
-      <input type="number" onChange={(e) => handleChange(e.target.value)} />
-      <br />
-      <button onClick={() => handleChange(count - 1)}>Increase</button>
-      <br />
-      <button onClick={() => handleChange(count + 1)}>decrease</button>
-      <button onClick={() => Router.push('/about?counter=10')}>to aboutPage</button>
-    </div>
+    <I18nProvider 
+      lang="en" 
+      namespaces={namespaces}  
+      internals={{"defaultLanguage":"en","isStaticMode":true}}
+    >
+      <C {...p} />
+    </I18nProvider>
   )
 }
 
-export default Home
+Page = Object.assign(Page, { ...C })
+
+if(C && C.getInitialProps) {
+  Page.getInitialProps = ctx => C.getInitialProps({ ...ctx, lang: 'en'})
+}
+
+
+
+
+
+
+
+

@@ -1,12 +1,10 @@
 // @ts-nocheck
 import I18nProvider from 'next-translate/I18nProvider'
 import React from 'react'
-import C from '../pages_'
+import C from '../pages_/second-page'
 import ns0 from '../locales/en/common.json'
-import ns1 from '../locales/en/home.json'
-import ns2 from '../locales/en/example.json'
 
-const namespaces = { 'common': ns0, 'home': ns1, 'example': ns2 }
+const namespaces = { 'common': ns0 }
 
 export default function Page(p){
   return (

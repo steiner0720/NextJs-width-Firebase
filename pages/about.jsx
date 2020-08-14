@@ -1,14 +1,34 @@
+// @ts-nocheck
+import I18nProvider from 'next-translate/I18nProvider'
 import React from 'react'
-import { useRouter } from 'next/router'
+import C from '../pages_/about'
+import ns0 from '../locales/en/common.json'
+import ns1 from '../locales/en/about.json'
 
-const About = () => {
-  const router = useRouter()
+const namespaces = { 'common': ns0, 'about': ns1 }
+
+export default function Page(p){
   return (
-    <div>
-      <div>im about page</div>
-      <button onClick={() => router.push('/home?counter=10')}>to homePage</button>
-    </div>
+    <I18nProvider 
+      lang="en" 
+      namespaces={namespaces}  
+      internals={{"defaultLanguage":"en","isStaticMode":true}}
+    >
+      <C {...p} />
+    </I18nProvider>
   )
 }
 
-export default About
+Page = Object.assign(Page, { ...C })
+
+if(C && C.getInitialProps) {
+  Page.getInitialProps = ctx => C.getInitialProps({ ...ctx, lang: 'en'})
+}
+
+
+
+
+
+
+
+
