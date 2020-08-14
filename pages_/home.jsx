@@ -1,7 +1,7 @@
 import React from 'react'
 import { useSelector, useDispatch } from 'react-redux'
-import { counting } from '../redux/actions/counterActions'
 import useTranslation from 'next-translate/useTranslation'
+import { counting } from '../redux/actions/counterActions'
 
 const Home = () => {
   const count = useSelector((state) => state.counterReducer.count)
@@ -14,7 +14,7 @@ const Home = () => {
   }
   return (
     <div>
-      <span>current count : {count}</span>
+      <span>{`current count : ${count}`}</span>
       <input type="number" onChange={(e) => handleChange(e.target.value)} />
       <br />
       <button onClick={() => handleChange(count - 1)}>Increase</button>

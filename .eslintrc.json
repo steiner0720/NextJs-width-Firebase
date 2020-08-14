@@ -1,0 +1,22 @@
+{
+	"env": {
+		"browser": true,
+		"es2020": true
+	},
+	"extends": ["airbnb", "prettier"],
+	"parserOptions": {
+		"ecmaFeatures": {
+			"jsx": true
+		},
+		"ecmaVersion": 11,
+		"sourceType": "module"
+	},
+	"plugins": ["prettier", "react"],
+	"rules": {
+		"semi": [2, "never"],
+		"linebreak-style": "off",
+		"import/no-named-as-default": "off",
+		"react/button-has-type": 0,
+		"react/jsx-props-no-spreading": "off"
+	}
+}

@@ -1,11 +1,11 @@
-
+import React from 'react'
 // import PropTypes from 'prop-types'
 import useTranslation from 'next-translate/useTranslation'
 import Router from 'next-translate/Router'
 
 const Homepage = () => {
   const { t, lang } = useTranslation()
-  console.log(lang)
+  console.log(t, lang)
   return (
     <>
       <main>
@@ -15,13 +15,13 @@ const Homepage = () => {
             onClick={() => Router.pushI18n({ url: '/home', options: { lang: 'ca' } })}
           >
             to ca home
-        </button>
+          </button>
           <button
             type='button'
             onClick={() => Router.pushI18n({ url: '/about', options: { lang: 'en' } })}
           >
             to en about
-        </button>
+          </button>
         </div>
       </main>
     </>
