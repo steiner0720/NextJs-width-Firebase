@@ -1,0 +1,23 @@
+html,
+body {
+	padding: 0;
+	margin: 0;
+	font-family: '-apple-system', 'Noto Sans TC', 'BlinkMacSystemFont', ' Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu',
+		'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', 'sans-serif', '微軟正黑體';
+}
+
+// next router loading
+#__next-prerender-indicator,
+#__next-build-watcher {
+	display: none;
+}
+
+a {
+	color: inherit;
+	text-decoration: none;
+}
+
+* {
+	box-sizing: border-box;
+	position: relative;
+}

@@ -4,25 +4,28 @@ import PropTypes, { objectOf } from 'prop-types'
 import { Provider } from 'react-redux'
 import { createStore } from 'redux'
 import rootReducer from '../redux/reducers/combineReducers'
+import '../styles/globals.scss'
 
-const MyApp = ({ Component, pageProps }) => {
+const AppRouter = ({ Component, pageProps }) => {
 
   return (
     <Provider store={createStore(rootReducer)}>
-      <Component {...pageProps} />
+      <div className="app">
+        <Component {...pageProps} />
+      </div>
     </Provider>
   )
 }
 
-MyApp.getInitialProps = async (appContext) => {
+AppRouter.getInitialProps = async (appContext) => {
   const appProps = await App.getInitialProps(appContext)
   return { ...appProps }
 }
 
-MyApp.propTypes = {
-  Component: objectOf(PropTypes.any).isRequired,
+AppRouter.propTypes = {
+  Component: PropTypes.func.isRequired,
   pageProps: objectOf(PropTypes.any).isRequired,
 
 }
 
-export default MyApp
+export default AppRouter
