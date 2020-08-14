@@ -2,9 +2,9 @@ import React from 'react'
 import { useSelector, useDispatch } from 'react-redux'
 import useTranslation from 'next-translate/useTranslation'
 import Router from 'next-translate/Router'
+import useSWR from 'swr'
 import { counting } from '../redux/actions/counterActions'
 import Footer from '../components/footer/Footer'
-
 
 const Home = () => {
   const count = useSelector((state) => state.counterReducer.count)
@@ -14,6 +14,14 @@ const Home = () => {
   const handleChange = (num) => {
     counting({ dispatch, count: num })
   }
+
+  const fetcher = async (...args) => {
+    const res = await fetch(...args)
+
+    return res.json()
+  }
+  const { data } = useSWR('/api/city/city', fetcher)
+  console.log(data, '123')
   return (
     <div>
       <h4>redux counter:</h4>
