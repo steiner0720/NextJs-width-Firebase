@@ -11,7 +11,7 @@
 # next.js
 /.next/
 /out/
-/pages
+/pages/
 
 # production
 /build
@@ -33,7 +33,7 @@ yarn-error.log*
 .env.production.local
 
 # firebase
-serviceAccountKey.json
+# serviceAccountKey.json
 
 # vercel
 .vercel
