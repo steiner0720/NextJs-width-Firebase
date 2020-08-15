@@ -33,9 +33,11 @@ yarn-error.log*
 .env.production.local
 
 # firebase
-# serviceAccountKey.json
+serviceAccountKey.json
 
 # vercel
 .vercel
 yarn.lock
 package-lock.json
+
+.vercel
