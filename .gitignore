@@ -10,8 +10,8 @@
 
 # next.js
 /.next/
+/.vercel/
 /out/
-/pages/
 
 # production
 /build

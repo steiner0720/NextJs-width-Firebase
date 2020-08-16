@@ -3,20 +3,18 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "node removePages.js && next-translate && next dev",
-    "build": "next-translate && next build",
+    "dev": "next",
+    "build": "next build",
     "start": "next start"
   },
   "dependencies": {
     "firebase-admin": "^9.1.0",
-    "next": "9.5.1",
-    "next-translate": "^0.17.2",
+    "i18next": "^19.6.3",
+    "next": "^9.5.2",
+    "next-i18next": "^6.0.2",
     "prop-types": "^15.7.2",
     "react": "16.13.1",
     "react-dom": "16.13.1",
-    "react-redux": "^7.2.1",
-    "redux": "^4.0.5",
-    "rimraf": "^3.0.2",
     "sass": "^1.26.10",
     "swr": "^0.3.0"
   },

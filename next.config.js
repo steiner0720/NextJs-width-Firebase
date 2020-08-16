@@ -1,4 +1,7 @@
 const path = require('path')
+const { nextI18NextRewrites } = require('next-i18next/rewrites')
+
+const localeSubpaths = {}
 
 module.exports = {
     webpack: (config, { isServer }) => {
@@ -12,15 +15,10 @@ module.exports = {
 
         return config
     },
-    // redirect
-    async redirects() {
-        return [
-            {
-                source: '/',
-                destination: '/home',
-                permanent: true,
-            },
-        ]
+    // nextI18NextRewrites
+    rewrites: async () => nextI18NextRewrites(localeSubpaths),
+    publicRuntimeConfig: {
+        localeSubpaths,
     },
     // sass
     sassOptions: {
@@ -29,5 +27,4 @@ module.exports = {
     devIndicators: {
         autoPrerender: false,
     },
-
 }

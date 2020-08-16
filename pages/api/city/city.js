@@ -1,8 +1,19 @@
 import firebase from '../../../lib/firebase'
 
+// realtime database
+// export default (req, res) => {
+//   return new Promise(() => {
+//     const ref = firebase.database().ref("cities")
+//     ref.orderByKey().on("value", (e) => {
+//       res.json(e.val())
+//     })
+//   })
+// }
+
+// firestore
 export default (req, res) => {
   return new Promise(() => {
-    firebase
+    firebase.firestore()
       .collection('cities')
       .doc('name')
       .get()

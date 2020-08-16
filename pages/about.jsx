@@ -1,34 +1,45 @@
-// @ts-nocheck
-import I18nProvider from 'next-translate/I18nProvider'
-import React from 'react'
-import C from '../pages_/about'
-import ns0 from '../locales/en/common.json'
-import ns1 from '../locales/en/about.json'
+import React, { useState, useEffect } from 'react'
+import useSwr from 'swr'
+import PropTypes from 'prop-types'
+import { i18n, Router, withTranslation } from '../i18n'
+import initialData from "../store/app"
 
-const namespaces = { 'common': ns0, 'about': ns1 }
+const About = ({ t }) => {
+  const state = useSwr("reducer", { initialData })
+  const { count } = state.data
+  const [lang, setLang] = useState('en')
 
-export default function Page(p){
+  useEffect(() => {
+    setLang(i18n.language)
+  }, [])
+
   return (
-    <I18nProvider 
-      lang="en" 
-      namespaces={namespaces}  
-      internals={{"defaultLanguage":"en","isStaticMode":true}}
-    >
-      <C {...p} />
-    </I18nProvider>
+    <div>
+      <h4>This is About page</h4>
+      <div>{t('h1')}</div>
+      <h4>now lang: </h4>
+      <span>{lang}</span>
+      <div>
+        <button
+          type='button'
+          onClick={() => Router.push('/')}
+        >
+          {t('back-to-home')}
+        </button>
+      </div>
+      <h4>useSwr gloabal state counter:</h4>
+      <div>{count}</div>
+    </div>
   )
 }
 
-Page = Object.assign(Page, { ...C })
+About.getInitialProps = async () => ({
+  namespacesRequired: ['about'],
+})
 
-if(C && C.getInitialProps) {
-  Page.getInitialProps = ctx => C.getInitialProps({ ...ctx, lang: 'en'})
+About.propTypes = {
+  t: PropTypes.func.isRequired,
 }
 
 
-
-
-
-
-
-
+export default withTranslation('about')(About)

@@ -1,19 +1,24 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import App from 'next/app'
-
-import PropTypes, { objectOf } from 'prop-types'
-import { Provider } from 'react-redux'
-import { createStore } from 'redux'
-import rootReducer from '../redux/reducers/combineReducers'
+import PropTypes from 'prop-types'
+import { SWRConfig } from 'swr'
+import { appWithTranslation } from '../i18n'
 import '../styles/globals.scss'
 
 const AppRouter = ({ Component, pageProps }) => {
+
+  useEffect(() => {
+    // const userLang = navigator.language || navigator.userLanguage
+    // if (userLang === 'zh-TW') i18n.changeLanguage('zh')
+    // i18n.changeLanguage('en')
+  })
+
   return (
-    <Provider store={createStore(rootReducer)}>
+    <SWRConfig>
       <div className="app">
         <Component {...pageProps} />
       </div>
-    </Provider>
+    </SWRConfig>
   )
 }
 
@@ -24,8 +29,8 @@ AppRouter.getInitialProps = async (appContext) => {
 
 AppRouter.propTypes = {
   Component: PropTypes.func.isRequired,
-  pageProps: objectOf(PropTypes.any).isRequired,
+  pageProps: PropTypes.objectOf(PropTypes.any).isRequired,
 
 }
 
-export default AppRouter
+export default appWithTranslation(AppRouter)
