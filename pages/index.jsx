@@ -49,7 +49,7 @@ const Home = ({ t }) => {
           {t('to-second-page')}
         </button>
       </div>
-      <h4>fetch fireBase API, City:</h4>
+      <h4>Fetch API from fireBase, City:</h4>
       <span>{data && data.name}</span>
       <Footer />
     </div>

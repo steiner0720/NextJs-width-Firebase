@@ -4,15 +4,11 @@ import PropTypes from 'prop-types'
 import { SWRConfig } from 'swr'
 import { appWithTranslation } from '../i18n'
 import '../styles/globals.scss'
+import '../lib/firebase'
 
 const AppRouter = ({ Component, pageProps }) => {
-
   useEffect(() => {
-    // const userLang = navigator.language || navigator.userLanguage
-    // if (userLang === 'zh-TW') i18n.changeLanguage('zh')
-    // i18n.changeLanguage('en')
-  })
-
+  }, [])
   return (
     <SWRConfig>
       <div className="app">
