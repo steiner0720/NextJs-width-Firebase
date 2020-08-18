@@ -16,6 +16,7 @@ const Home = ({ t }) => {
   const handleChange = (num) => {
     mutate('reducer', { ...state.data, count: num }, false)
   }
+  console.log(data)
 
   return (
     <div>
@@ -50,7 +51,7 @@ const Home = ({ t }) => {
         </button>
       </div>
       <h4>Fetch API from fireBase, City:</h4>
-      <span>{data && data.name}</span>
+      {/* <span>{data && data.name}</span> */}
       <Footer />
     </div>
   )

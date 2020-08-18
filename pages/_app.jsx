@@ -4,7 +4,8 @@ import PropTypes from 'prop-types'
 import { SWRConfig } from 'swr'
 import { appWithTranslation } from '../i18n'
 import '../styles/globals.scss'
-import '../lib/firebase'
+import './api/firebase'
+// import '../lib/firebase'
 
 // const firebase = require('firebase/app')
 
