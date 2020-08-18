@@ -8,7 +8,7 @@ const firebaseConfig = {
     storageBucket: process.env.STORAGEBUCKET,
     messagingSenderId: process.env.MESSAGINGSENDERID,
     appId: process.env.APPID,
-    measurementId: process.env.APIKEY,
+    measurementId: process.env.MEASUREMENTID,
 }
 
 if (firebase.apps.length) {
