@@ -1,4 +1,5 @@
-import firebase from '../../../lib/firebase'
+// import firebase from '../../../lib/firebase'
+import firebase from 'firebase'
 
 // realtime database
 // export default (req, res) => {

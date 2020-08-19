@@ -14,6 +14,7 @@ const Home = ({ t }) => {
   const { count, user } = state.data
   const { data } = useSwr('/api/city/city', fetcher)
 
+
   const handleChange = (num) => {
     mutate('store', { ...state.data, count: num }, false)
   }

@@ -16,6 +16,18 @@ const config = {
   appId: "1:342786163618:web:4adb2e729b1f3c8775a8fb",
   measurementId: "G-76W9NNHSXL"
 }
+
+// const firebaseConfig = {
+//   apiKey: process.env.APIKEY,
+//   authDomain: process.env.AUTHDOMAIN,
+//   databaseURL: process.env.DATABASEURL,
+//   projectId: process.env.PROJECTID,
+//   storageBucket: process.env.STORAGEBUCKET,
+//   messagingSenderId: process.env.MESSAGINGSENDERID,
+//   appId: process.env.APPID,
+//   measurementId: process.env.APIKEY,
+// }
+
 if (firebase.apps.length) {
   firebase.app()
 } else {
@@ -29,7 +41,7 @@ const uiConfig = {
   // We will display Google and Facebook as auth providers.
   signInOptions: [
     firebase.auth.GoogleAuthProvider.PROVIDER_ID,
-    firebase.auth.FacebookAuthProvider.PROVIDER_ID
+    // firebase.auth.FacebookAuthProvider.PROVIDER_ID
   ],
   callbacks: {
     // Avoid redirects after sign-in.
