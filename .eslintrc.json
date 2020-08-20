@@ -1,11 +1,13 @@
 {
 	"env": {
 		"browser": true,
-		"es2020": true
+		"es2020": true,
+		"commonjs": true
 	},
-	"extends": ["airbnb", "prettier"],
+	"extends": ["airbnb", "prettier", "prettier/react"],
 	"parserOptions": {
 		"ecmaFeatures": {
+			"experimentalObjectRestSpread": true,
 			"jsx": true
 		},
 		"ecmaVersion": 11,

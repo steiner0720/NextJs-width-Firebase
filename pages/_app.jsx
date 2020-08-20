@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react'
+import PropTypes from 'prop-types'
 import App from 'next/app'
 import Head from 'next/head'
-import PropTypes from 'prop-types'
 import { SWRConfig } from 'swr'
 import { appWithTranslation } from '../i18n'
 import SignIn from '../components/siginIn/SignIn'
@@ -14,7 +14,9 @@ const AppRouter = ({ Component, pageProps }) => {
   }, [])
   return (
     <>
-      <Head><title>project name</title></Head>
+      <Head>
+        <title>project name</title>
+      </Head>
       <SWRConfig>
         <div className="app">
           <SignIn />
@@ -25,8 +27,8 @@ const AppRouter = ({ Component, pageProps }) => {
   )
 }
 
-AppRouter.getStaticProps = async (appContext) => {
-  const appProps = await App.getStaticProps(appContext)
+AppRouter.getInitialProps = async (appContext) => {
+  const appProps = await App.getInitialProps(appContext)
   return { ...appProps }
 }
 
