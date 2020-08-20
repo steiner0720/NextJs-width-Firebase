@@ -1,9 +1,11 @@
 
 import React, { useEffect } from 'react'
 import StyledFirebaseAuth from 'react-firebaseui/StyledFirebaseAuth'
-import firebase from 'firebase'
+import * as firebase from 'firebase'
 import useSwr, { mutate } from 'swr'
 import initialData from "../../store/app"
+
+// const firebase = require('firebase/app')
 
 // Configure Firebase.
 const config = {

@@ -5,7 +5,7 @@ import { i18n, Router, withTranslation } from '../i18n'
 import initialData from "../store/app"
 
 const About = ({ t }) => {
-  const state = useSwr("reducer", { initialData })
+  const state = useSwr("store", { initialData })
   const { count } = state.data
   const [lang, setLang] = useState('en')
 

@@ -30,6 +30,7 @@ const Home = ({ t }) => {
       {user && (
         <>
           <h4>now is Login</h4>
+          <img src={user && user.photoURL} style={{ width: '64px', height: '64px', borderRadius: '100px', overflow: 'hidden' }} alt="" />
           <div>{user.displayName}</div>
           <button onClick={() => {
             firebase.auth().signOut()

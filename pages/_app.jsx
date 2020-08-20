@@ -17,8 +17,8 @@ const AppRouter = ({ Component, pageProps }) => {
       <Head><title>project name</title></Head>
       <SWRConfig>
         <div className="app">
-          <Component {...pageProps} />
           <SignIn />
+          <Component {...pageProps} />
         </div>
       </SWRConfig>
     </>
