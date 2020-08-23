@@ -16,14 +16,14 @@ module.exports = {
     },
     // Environment Variables
     env: {
-        APIKEY: "AIzaSyCG_SR9SVD3x0NnOi-jzZRLPySGFiEymog",
-        AUTHDOMAIN: "nextjs-e33e1.firebaseapp.com",
-        DATABASEURL: "https://nextjs-e33e1.firebaseio.com",
-        PROJECTID: "nextjs-e33e1",
-        STORAGEBUCKET: "nextjs-e33e1.appspot.com",
-        MESSAGINGSENDERID: "342786163618",
-        APPID: "1:342786163618:web:4adb2e729b1f3c8775a8fb",
-        MEASUREMENTID: "G-76W9NNHSXL"
+        apiKey: process.env.APIKEY,
+        authDomain: process.env.AUTHDOMAIN,
+        databaseURL: process.env.DATABASEURL,
+        projectId: process.env.PROJECTID,
+        storageBucket: process.env.STORAGEBUCKET,
+        messagingSenderId: process.env.MESSAGINGSENDERID,
+        appId: process.env.APPID,
+        measurementId: process.env.APIKEY,
     },
     // nextI18NextRewrites
     rewrites: async () => nextI18NextRewrites(localeSubpaths),
