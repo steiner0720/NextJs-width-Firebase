@@ -1,5 +1,6 @@
 import React, { useEffect } from 'react'
 import PropTypes from 'prop-types'
+import firebase from 'firebase/app'
 import App from 'next/app'
 import Head from 'next/head'
 import { SWRConfig } from 'swr'
@@ -9,7 +10,23 @@ import SignIn from '../components/siginIn/SignIn'
 import '../styles/globals.scss'
 
 const AppRouter = ({ Component, pageProps }) => {
+  // Configure Firebase.
+  const firebaseConfig = {
+    apiKey: process.env.apiKey,
+    authDomain: process.env.authDomain,
+    databaseURL: process.env.databaseURL,
+    projectId: process.env.projectId,
+    storageBucket: process.env.storageBucket,
+    messagingSenderId: process.env.messagingSenderId,
+    appId: process.env.appId,
+    measurementId: process.env.measurementId,
+  }
 
+  if (firebase.apps.length) {
+    firebase.app()
+  } else {
+    firebase.initializeApp(firebaseConfig)
+  }
   useEffect(() => {
   }, [])
   return (
