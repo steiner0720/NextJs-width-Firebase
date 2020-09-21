@@ -25,6 +25,16 @@ module.exports = {
 		appId: process.env.APPID,
 		measurementId: process.env.APIKEY,
 	},
+	// Redirects
+	async redirects() {
+		return [
+			{
+				source: '/',
+				destination: '/home',
+				permanent: false,
+			},
+		]
+	},
 	// nextI18NextRewrites
 	rewrites: async () => nextI18NextRewrites(localeSubpaths),
 	publicRuntimeConfig: {

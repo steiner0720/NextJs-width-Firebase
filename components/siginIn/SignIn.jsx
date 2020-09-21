@@ -5,40 +5,35 @@ import 'firebase/auth'
 import useSwr, { mutate } from 'swr'
 import initialData from '../../store/app'
 
+// Configure FirebaseUI.
+const uiConfig = {
+	signInFlow: 'popup', // Popup signin flow rather than redirect flow.
+	signInOptions: [
+		// We will display Google and Facebook as auth providers.
+		firebase.auth.GoogleAuthProvider.PROVIDER_ID,
+	],
+	callbacks: {
+		signInSuccessWithAuthResult: () => false, // Avoid redirects after sign-in.
+	},
+}
+
 const SignIn = () => {
 	const state = useSwr('store', false, { initialData })
 	const { user, isSignIn } = state.data
 
-	const checkAuth = !user && isSignIn
-
-	// Configure FirebaseUI.
-	const uiConfig = {
-		// Popup signin flow rather than redirect flow.
-		signInFlow: 'popup',
-		// We will display Google and Facebook as auth providers.
-		signInOptions: [
-			firebase.auth.GoogleAuthProvider.PROVIDER_ID,
-			// firebase.auth.FacebookAuthProvider.PROVIDER_ID
-		],
-		callbacks: {
-			// Avoid redirects after sign-in.
-			signInSuccessWithAuthResult: () => false,
-		},
-	}
-
 	useEffect(() => {
 		firebase
 			.auth()
-			.onAuthStateChanged((fetchUser) => mutate('store', { ...state.data, user: fetchUser, isSignIn: true }, false))
+			.onAuthStateChanged(fetchUser => mutate('store', { ...state.data, user: fetchUser, isSignIn: true }, false))
 	}, [])
 
 	return (
 		<div>
-			{checkAuth && (
+			{!user && isSignIn && (
 				<StyledFirebaseAuth
 					uiConfig={uiConfig}
 					firebaseAuth={firebase.auth()}
-					uiCallback={(ui) => ui.disableAutoSignIn()}
+					uiCallback={ui => ui.disableAutoSignIn()}
 				/>
 			)}
 		</div>
