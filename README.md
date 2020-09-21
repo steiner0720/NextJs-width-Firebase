@@ -1,4 +1,10 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).  
+Project include:  
+- i18n: i18next  
+- Realtime Database: firebase  
+- Firebase Login: firebase-admin  
+- Global state: swr  
+- Vercel deploy  
 
 ## Getting Started
 
@@ -29,40 +35,50 @@ The easiest way to deploy your Next.js app is to use the [Vercel Platform](https
 
 Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
 
-## Set .env
+## Set .env for firebase serviceAccount
 
-1.create .env file like this:
-PROJECTID=my-id
-PRIVATEKEY=my-key
-CLIENTEMAIL=my-email
+- Create [Firebase](https://firebase.google.com/) Project
 
-2.set you firebase.js file like this:
-import admin from 'firebase-admin'
+- Create .env.local file  
 
-const privateKey = process.env.PRIVATEKEY.replace(/\\n/g, '\n')
-const serviceAccount = {
-    "project_id": process.env.PROJECTID,
-    "private_key": privateKey,
-    "client_email": process.env.CLIENTEMAIL,
-}
-
-try {
-    admin.initializeApp({
-        credential: admin.credential.cert(serviceAccount),
-        databaseURL: "https://nextjs-e33e1.firebaseio.com"
-    })
-} catch (error) {
-    /*
-     * We skip the "already exists" message which is
-     * not an actual error when we're hot-reloading.
-     */
-    if (!/already exists/u.test(error.message)) {
-        console.error('Firebase admin initialization error', error.stack)
-    }
-}
-
-export default admin.firestore()
-
-3.Go to vercel set environment variables.
-4.npm i -g vercel and run vercel.
-5.Complete!
+PROJECTID=your-id  
+PRIVATEKEY=your-key  
+CLIENTEMAIL=your-email  
+  
+- Set serviceAccount:  
+const serviceAccount = {  
+    "project_id": process.env.PROJECTID,  
+    "private_key": process.env.PRIVATEKEY.replace(/\\n/g, '\n'),  
+    "client_email": process.env.CLIENTEMAIL,  
+}  
+  
+- Set environment variables on Vercel project setting.  
+  
+## i18n/Router
+  
+- Open i18n.js file to set language support:  
+  
+module.exports = new NextI18Next({  
+	defaultLanguage: 'en-US',  
+	otherLanguages: ['en-US', 'zh-TW'],  
+	localeSubpaths,  
+	localePath: path.resolve('./public/static/locales'),  
+})  
+  
+- use Router import from i18n.js:  
+  
+import { Router } from '../i18n'  
+Router.push('/home')  
+  
+## SWR  
+  
+ - [useSwr](https://github.com/vercel/swr) for global state  
+   
+ - Create a app.js file for initial state  
+   
+ - Fetch initial state:  
+ import initialData from '../store/app'  
+ const state = useSwr('store', false, { initialData })  
+  
+ - Update state:  
+ mutate('store', { ...state.data, count: counted }, false)  

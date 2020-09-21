@@ -15,7 +15,7 @@ const Home = ({ t }) => {
 	} = useContext(I18nContext)
 
 	const state = useSwr('store', false, { initialData })
-	const { data } = useSwr('/api/city/city', fetcher)
+	const { data } = useSwr('/api/city/fetchCity', fetcher)
 	const { count, user } = state.data
 
 	const handleChange = counted => mutate('store', { ...state.data, count: counted }, false)
@@ -30,14 +30,14 @@ const Home = ({ t }) => {
 				<>
 					<h4>now is Login</h4>
 					<img
-						src={user && user.photoURL}
+						src={user.photoURL}
 						style={{
 							width: '64px',
 							height: '64px',
 							borderRadius: '100px',
 							overflow: 'hidden',
 						}}
-						alt=''
+						alt='avatar'
 					/>
 					<div>{user.displayName}</div>
 					<button
@@ -56,10 +56,10 @@ const Home = ({ t }) => {
 			<div>{t('h1')}</div>
 			<div>
 				<button type='button' onClick={() => i18n.changeLanguage('en-US')}>
-					to en
+					to en-US
 				</button>
-				<button type='button' onClick={() => i18n.changeLanguage('de')}>
-					to de
+				<button type='button' onClick={() => i18n.changeLanguage('zh-TW')}>
+					to zh-TW
 				</button>
 			</div>
 			<div>
@@ -68,18 +68,18 @@ const Home = ({ t }) => {
 				</button>
 			</div>
 			<h4>Fetch API from fireBase, City:</h4>
-			<span>{data && data.name}</span>
+			<span>{data ? data.name : 'loading...'}</span>
 			<Footer />
 		</div>
 	)
 }
 
 Home.getInitialProps = async () => ({
-	namespacesRequired: ['common', 'footer'],
+	namespacesRequired: ['common'],
 })
 
 Home.propTypes = {
 	t: PropTypes.func.isRequired,
 }
 
-export default withTranslation('common', 'footer')(Home)
+export default withTranslation('common')(Home)

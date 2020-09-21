@@ -14,7 +14,7 @@ module.exports = {
 		}
 		return config
 	},
-	// Environment Variables
+	// Environment Variables for node.js
 	env: {
 		apiKey: process.env.APIKEY,
 		authDomain: process.env.AUTHDOMAIN,
@@ -25,7 +25,7 @@ module.exports = {
 		appId: process.env.APPID,
 		measurementId: process.env.APIKEY,
 	},
-	// Redirects
+	// default redirects
 	async redirects() {
 		return [
 			{
@@ -40,7 +40,7 @@ module.exports = {
 	publicRuntimeConfig: {
 		localeSubpaths,
 	},
-	// sass
+	// sass build
 	sassOptions: {
 		includePaths: [path.join(__dirname, 'styles')],
 	},

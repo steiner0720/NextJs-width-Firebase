@@ -28,15 +28,16 @@ const SignIn = () => {
 	}, [])
 
 	return (
-		<div>
-			{!user && isSignIn && (
+		!user &&
+		isSignIn && (
+			<div className='signIn'>
 				<StyledFirebaseAuth
 					uiConfig={uiConfig}
 					firebaseAuth={firebase.auth()}
 					uiCallback={ui => ui.disableAutoSignIn()}
 				/>
-			)}
-		</div>
+			</div>
+		)
 	)
 }
 

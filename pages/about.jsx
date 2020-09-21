@@ -13,7 +13,7 @@ const About = ({ t }) => {
 	const { count } = state.data
 
 	return (
-		<div>
+		<>
 			<h4>This is About page</h4>
 			<div>{t('h1')}</div>
 			<h4>now lang: </h4>
@@ -25,7 +25,7 @@ const About = ({ t }) => {
 			</div>
 			<h4>useSwr gloabal state counter:</h4>
 			<div>{count}</div>
-		</div>
+		</>
 	)
 }
 

@@ -30,7 +30,6 @@ yarn-error.log*
 .env.local
 .env.json
 .env.development.local
-.env.test.local
 .env.production.local
 
 # firebase
@@ -40,5 +39,3 @@ serviceAccountKey.json
 .vercel
 yarn.lock
 package-lock.json
-
-.vercel
