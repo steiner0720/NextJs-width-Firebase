@@ -1,5 +1,5 @@
 export const fetcher = async (...args) => {
-    const res = await fetch(...args)
-    return res.json()
+	const res = await fetch(...args)
+	return res.json()
 }
 export default fetcher

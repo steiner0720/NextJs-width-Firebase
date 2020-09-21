@@ -3,8 +3,8 @@ const { localeSubpaths } = require('next/config').default().publicRuntimeConfig
 const path = require('path')
 
 module.exports = new NextI18Next({
-  defaultLanguage: 'en',
-  otherLanguages: ['en', 'de'],
-  localeSubpaths,
-  localePath: path.resolve('./public/static/locales')
+	defaultLanguage: 'en',
+	otherLanguages: ['en', 'de'],
+	localeSubpaths,
+	localePath: path.resolve('./public/static/locales'),
 })
