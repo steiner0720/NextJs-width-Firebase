@@ -12,8 +12,4 @@ const Custom404 = () => {
 	return null
 }
 
-Custom404.getInitialProps = async () => ({
-	namespacesRequired: ['common'],
-})
-
 export default Custom404
