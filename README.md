@@ -40,7 +40,6 @@ Check out our [Next.js deployment documentation](https://nextjs.org/docs/deploym
 - Create [Firebase](https://firebase.google.com/) Project
 
 - Create .env.local file  
-
 PROJECTID=your-id  
 PRIVATEKEY=your-key  
 CLIENTEMAIL=your-email  
@@ -57,7 +56,6 @@ const serviceAccount = {
 ## i18n/Router
   
 - Open i18n.js file to set language support:  
-  
 module.exports = new NextI18Next({  
 	defaultLanguage: 'en-US',  
 	otherLanguages: ['en-US', 'zh-TW'],  
@@ -66,7 +64,6 @@ module.exports = new NextI18Next({
 })  
   
 - use Router import from i18n.js:  
-  
 import { Router } from '../i18n'  
 Router.push('/home')  
   
