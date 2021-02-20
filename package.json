@@ -8,11 +8,8 @@
 		"start": "next start"
 	},
 	"dependencies": {
-<<<<<<< HEAD
 		"@ant-design/icons": "^4.5.0",
 		"antd": "^4.12.3",
-=======
->>>>>>> 9e1272d99b07ddd2e6f1702b64facfa5188245b4
 		"firebase": "^7.18.0",
 		"firebase-admin": "^9.1.0",
 		"i18next": "^19.6.3",
@@ -21,10 +18,6 @@
 		"prop-types": "^15.7.2",
 		"react": "16.13.1",
 		"react-dom": "16.13.1",
-<<<<<<< HEAD
-=======
-		"react-firebaseui": "^4.1.0",
->>>>>>> 9e1272d99b07ddd2e6f1702b64facfa5188245b4
 		"sass": "^1.26.10",
 		"swr": "^0.3.0"
 	},

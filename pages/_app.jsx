@@ -3,13 +3,8 @@ import PropTypes from 'prop-types'
 import firebase from 'firebase/app'
 import App from 'next/app'
 import Head from 'next/head'
-<<<<<<< HEAD
 import Header from '../components/header/Header'
 import { appWithTranslation } from '../i18n'
-=======
-import { appWithTranslation } from '../i18n'
-import SignIn from '../components/siginIn/SignIn'
->>>>>>> 9e1272d99b07ddd2e6f1702b64facfa5188245b4
 
 import '../styles/globals.scss'
 
@@ -34,17 +29,10 @@ if (firebase.apps.length) {
 const InitApp = ({ Component, pageProps }) => (
 	<>
 		<Head>
-<<<<<<< HEAD
 			<title>Nextjs-with-Firebase</title>
 		</Head>
 		<Header />
 		<div className='app'>
-=======
-			<title>project name</title>
-		</Head>
-		<div className='app'>
-			<SignIn />
->>>>>>> 9e1272d99b07ddd2e6f1702b64facfa5188245b4
 			<Component {...pageProps} />
 		</div>
 	</>
