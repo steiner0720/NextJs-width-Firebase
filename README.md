@@ -8,7 +8,7 @@ Project include:
 
 ## DEMO  
   
-[Demo Page](https://nextjs.steinerwang.vercel.app)  
+[Demo Page](https://nextjswithfirebase.vercel.app)  
   
 ## Getting Started
 
