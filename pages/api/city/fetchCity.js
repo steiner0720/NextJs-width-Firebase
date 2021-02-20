@@ -1,15 +1,5 @@
 import firebase from '../../../lib/firebase'
 
-// realtime database
-// export default (req, res) => {
-//   return new Promise(() => {
-//     const ref = firebase.database().ref("cities")
-//     ref.orderByKey().on("value", (e) => {
-//       res.json(e.val())
-//     })
-//   })
-// }
-
 // firestore
 export default (req, res) => {
 	return new Promise(() => {
@@ -18,10 +8,10 @@ export default (req, res) => {
 			.collection('cities')
 			.doc('name')
 			.get()
-			.then((doc) => {
+			.then(doc => {
 				res.json(doc.data())
 			})
-			.catch((error) => {
+			.catch(error => {
 				res.json({ error })
 			})
 	})

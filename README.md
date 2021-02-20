@@ -1,7 +1,7 @@
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).  
 Project include:  
 - i18n: i18next  
-- Realtime Database: firebase  
+- Database: firebase  
 - Firebase Login: firebase-admin  
 - Global state: swr  
 - Vercel deploy  

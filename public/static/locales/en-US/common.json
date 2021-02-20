@@ -1,5 +1,5 @@
 {
-	"h1": "A simple example",
-	"change-locale": "Change locale",
-	"to-second-page": "To second page"
+	"en-US": "English",
+	"zh-TW": "中文",
+	"page-about": "To About page"
 }

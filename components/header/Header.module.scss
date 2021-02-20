@@ -1,0 +1,10 @@
+.header {
+	background-color: #fff;
+	z-index: 2;
+	position: sticky;
+	top: 0px;
+	box-shadow: 0 2px 8px #f0f1f2;
+	.ant-page-header {
+		padding: 16px;
+	}
+}

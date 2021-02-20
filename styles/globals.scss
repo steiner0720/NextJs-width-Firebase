@@ -1,3 +1,5 @@
+@import '../node_modules/antd/dist/antd.min.css';
+
 html,
 body {
 	padding: 0;
@@ -17,4 +19,16 @@ a {
 * {
 	box-sizing: border-box;
 	position: relative;
+}
+
+.app {
+	width: 100%;
+	.ant-descriptions-bordered .ant-descriptions-item-content:last-child,
+	.ant-descriptions-bordered .ant-descriptions-item-label:last-child {
+		width: 60%;
+	}
+}
+h2 {
+	font-weight: bold;
+	margin-top: 40px;
 }

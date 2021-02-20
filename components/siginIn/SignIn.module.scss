@@ -1,0 +1,25 @@
+.signIn {
+	display: flex;
+	justify-content: flex-start;
+	align-items: center;
+}
+
+.avatar {
+	display: flex;
+	justify-content: flex-start;
+	align-items: center;
+	cursor: pointer;
+	img {
+		border: 2px solid #d9d9d9;
+		padding: 2px;
+		margin-right: 10px;
+		width: 44px;
+		height: 44px;
+		border-radius: 50%;
+		overflow: hidden;
+		transition: border-color 0.3s ease-in-out;
+		&:hover {
+			border-color: #8c8c8c;
+		}
+	}
+}
